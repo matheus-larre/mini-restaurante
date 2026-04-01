@@ -566,3 +566,268 @@ h1, h2, h3 {
 .animar:nth-child(2) { transition-delay: 0.1s; }
 .animar:nth-child(3) { transition-delay: 0.2s; }
 .animar:nth-child(4) { transition-delay: 0.3s; }
+
+/* =============================================
+   HERO PEQUENO (páginas internas: cardápio, contato)
+   ============================================= */
+
+.hero--pequeno {
+  height: 40vh;       /* menor que o hero da home */
+  min-height: 280px;
+}
+
+/* =============================================
+   SUGESTÃO DO CHEF
+   ============================================= */
+
+.chef-destaque {
+  padding: var(--espacamento-secao) 0;
+  background-color: var(--cor-fundo);
+}
+
+.chef-destaque__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.chef-destaque__texto {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.chef-destaque__descricao {
+  color: var(--cor-texto-claro);
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.chef-destaque__preco {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 4px 0;
+}
+
+.chef-destaque__label {
+  font-size: 0.85rem;
+  color: var(--cor-texto-claro);
+}
+
+.chef-destaque__valor {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.chef-destaque__imagem {
+  position: relative;  /* necessário para posicionar o badge */
+}
+
+.chef-destaque__imagem img {
+  width: 100%;
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra);
+  aspect-ratio: 4 / 3;    /* proporção fixa independente do tamanho */
+  object-fit: cover;
+}
+
+/* Badge "Chef indica" sobre a imagem */
+.chef-destaque__badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  padding: 6px 14px;
+  border-radius: 999px;  /* pílula */
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 768px) {
+  .chef-destaque__container {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  /* Imagem aparece antes do texto no mobile */
+  .chef-destaque__imagem {
+    order: -1;
+  }
+}
+
+/* =============================================
+   FILTROS DO CARDÁPIO
+   ============================================= */
+
+.cardapio-secao {
+  padding: var(--espacamento-secao) 0;
+  background-color: var(--cor-branco);
+}
+
+.cardapio-filtros {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;   /* quebra linha em telas pequenas */
+  margin-bottom: 48px;
+}
+
+.filtro-btn {
+  padding: 10px 24px;
+  border-radius: 999px;  /* formato pílula */
+  border: 2px solid var(--cor-primaria);
+  background-color: transparent;
+  color: var(--cor-primaria);
+  font-family: var(--fonte-corpo);
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transicao);
+  letter-spacing: 0.5px;
+}
+
+.filtro-btn:hover,
+.filtro-btn.ativo {
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+}
+
+/* =============================================
+   GRID DE CARDS DE PRATO
+   ============================================= */
+
+.cardapio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+/* ---- Card individual ---- */
+.prato-card {
+  background-color: var(--cor-fundo);
+  border-radius: var(--raio-borda);
+  overflow: hidden;       /* imagem não vaza fora das bordas arredondadas */
+  box-shadow: var(--sombra);
+  display: flex;
+  flex-direction: column;
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+.prato-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* Área da imagem — com foto real */
+.prato-card__imagem {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.prato-card__imagem img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;       /* recorta a imagem sem distorcer */
+  transition: transform 0.5s ease;
+}
+
+.prato-card:hover .prato-card__imagem img {
+  transform: scale(1.05);  /* zoom suave na imagem ao hover */
+}
+
+/* Placeholder com emoji (para pratos sem foto) */
+.prato-card__imagem--placeholder {
+  background: linear-gradient(135deg, var(--cor-primaria-clara), #f9e4c0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+}
+
+/* Conteúdo textual do card */
+.prato-card__conteudo {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;                 /* ocupa o espaço restante */
+}
+
+/* Badge colorido por categoria */
+.prato-card__badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  width: fit-content;
+}
+
+.prato-card__badge--entrada   { background-color: #d4edda; color: #1a6630; }
+.prato-card__badge--principal { background-color: #fff3cd; color: #856404; }
+.prato-card__badge--sobremesa { background-color: #f8d7da; color: #842029; }
+.prato-card__badge--bebida    { background-color: #cfe2ff; color: #0a3878; }
+
+.prato-card__nome {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--cor-texto);
+}
+
+.prato-card__descricao {
+  font-size: 0.875rem;
+  color: var(--cor-texto-claro);
+  line-height: 1.6;
+  flex: 1;
+}
+
+/* Rodapé do card: preço à esquerda, destaque à direita */
+.prato-card__rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.prato-card__preco {
+  font-family: var(--fonte-titulo);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+.prato-card__destaque {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--cor-primaria);
+}
+
+/* Cards ocultos pelo filtro JS */
+.prato-card.oculto {
+  display: none;
+}
+
+/* Mensagem de "nenhum prato encontrado" */
+.cardapio-vazio {
+  display: none;            /* escondida por padrão */
+  text-align: center;
+  color: var(--cor-texto-claro);
+  font-size: 1.1rem;
+  padding: 48px 0;
+}
+
+.cardapio-vazio.visivel {
+  display: block;
+}
+

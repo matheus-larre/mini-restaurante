@@ -69,3 +69,49 @@ const observer = new IntersectionObserver(function (entradas) {
 elementosAnimados.forEach(function (el) {
   observer.observe(el);
 });
+
+// =============================================
+// FILTRO DO CARDÁPIO
+// =============================================
+
+// Só roda se existir a grade do cardápio na página atual
+const cardapioGrid = document.getElementById('cardapio-grid');
+
+if (cardapioGrid) {
+
+  const filtros       = document.querySelectorAll('.filtro-btn');
+  const pratos        = document.querySelectorAll('.prato-card');
+  const mensagemVazia = document.getElementById('cardapio-vazio');
+
+  filtros.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+
+      // 1. Atualiza o botão ativo
+      filtros.forEach(function (b) { b.classList.remove('ativo'); });
+      btn.classList.add('ativo');
+
+      const categoria = btn.dataset.filtro; // lê o data-filtro do botão
+      let pratoVisiveis = 0;
+
+      // 2. Mostra ou oculta cada card
+      pratos.forEach(function (card) {
+        const pertence = categoria === 'todos' ||
+                         card.dataset.categoria === categoria;
+
+        if (pertence) {
+          card.classList.remove('oculto');
+          pratoVisiveis++;
+        } else {
+          card.classList.add('oculto');
+        }
+      });
+
+      // 3. Exibe a mensagem se nenhum prato passar no filtro
+      if (pratoVisiveis === 0) {
+        mensagemVazia.classList.add('visivel');
+      } else {
+        mensagemVazia.classList.remove('visivel');
+      }
+    });
+  });
+}

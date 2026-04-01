@@ -1,117 +1,301 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Restaurante Sabor & Arte — cozinha autoral com ingredientes frescos."
-    />
-    <title>Restaurante Sabor & Arte</title>
+    <meta name="description" content="Cardápio do Restaurante Sabor & Arte — pratos autorais com ingredientes frescos." />
+    <title>Cardápio | Sabor & Arte</title>
 
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="src/css/reset.css" />
     <link rel="stylesheet" href="src/css/styles.css" />
   </head>
+
   <body>
-<header class="header" id="header">
-  <div class="container header__container">
 
-    <a href="index.html" class="header__logo">
-      Sabor <span>&</span> Arte
-    </a>
-
-    <button class="header__hamburguer" id="hamburguer" aria-label="Abrir menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-
-    <nav class="header__nav" id="nav">
-      <ul class="header__lista">
-        <li><a href="index.html" class="header__link">Início</a></li>
-        <li><a href="cardapio.html" class="header__link ativo">Cardápio</a></li>
-        <li><a href="contato.html" class="header__link">Contato</a></li>
-      </ul>
-    </nav>
-
-  </div>
-</header>
-
-<div class="header-espacador"></div>
-    <main>
-      <h1>Cardápio</h1>
-      <table>
-        <tr>
-          <th>Prato</th>
-          <th>Descrição</th>
-          <th>Preço</th>
-        </tr>
-        <tr>
-          <td>Risoto de Camarão</td>
-          <td>Cremoso, com camarões frescos e toque de limão</td>
-          <td>R$ 49,90</td>
-        </tr>
-        <tr>
-          <td>Filé ao molho madeira</td>
-          <td>Filé mignon ao molho madeira, acompanha arroz e batata</td>
-          <td>R$ 54,90</td>
-        </tr>
-        <tr>
-          <td>Salada Mediterrânea</td>
-          <td>Mix de folhas, tomate seco, queijo feta e azeite</td>
-          <td>R$ 32,00</td>
-        </tr>
-        <tr>
-          <td>Frango Grelhado</td>
-          <td>Peito de frango grelhado, legumes salteados</td>
-          <td>R$ 39,90</td>
-        </tr>
-        <tr>
-          <td>Spaghetti ao pesto</td>
-          <td>Spaghetti artesanal com molho pesto de manjericão</td>
-          <td>R$ 36,00</td>
-        </tr>
-      </table>
-      <h2>Sugestões do Chef</h2>
-      <ol>
-        <li>Risoto de Camarão</li>
-        <li>Filé ao molho madeira</li>
-        <li>Spaghetti ao pesto</li>
-      </ol>
-      <div>
-        <img
-          src="src/img/RisotoCamarao.png"
-          alt="Risoto de Camarão"
-          width="150"
-        />
-        <img
-          src="src/img/FileaoMolhoMadeira.png"
-          alt="Filé ao molho madeira"
-          width="150"
-        />
+    <!-- ===== HEADER ===== -->
+    <header class="header" id="header">
+      <div class="container header__container">
+        <a href="index.html" class="header__logo">Sabor <span>&</span> Arte</a>
+        <button class="header__hamburguer" id="hamburguer" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="header__nav" id="nav">
+          <ul class="header__lista">
+            <li><a href="index.html" class="header__link">Início</a></li>
+            <li><a href="cardapio.html" class="header__link ativo">Cardápio</a></li>
+            <li><a href="contato.html" class="header__link">Contato</a></li>
+          </ul>
+        </nav>
       </div>
-      <p
-        style="
-          border: 2px solid #b8860b;
-          padding: 8px;
-          background: #fffbe6;
-          color: #b8860b;
-        "
-      >
-        Siga nosso Instagram para novidades:
-        <a href="https://instagram.com/restaurantesaborarte" target="_blank"
-          >@restaurantesaborarte</a
-        >
-      </p>
-    </main>
+    </header>
+
+    <!-- ===== HERO DO CARDÁPIO ===== -->
+    <!-- Hero menor que o da home — só para identificar a página -->
+    <section class="hero hero--pequeno">
+      <div class="hero__overlay"></div>
+      <div class="container hero__conteudo">
+        <p class="hero__pretitulo">Explore nossos sabores</p>
+        <h1 class="hero__titulo">Cardápio</h1>
+      </div>
+    </section>
+
+    <!-- ===== SUGESTÃO DO CHEF ===== -->
+    <section class="chef-destaque">
+      <div class="container chef-destaque__container">
+        <div class="chef-destaque__texto">
+          <p class="secao-pretitulo">Recomendação especial</p>
+          <h2 class="secao-titulo">Sugestão do Chef</h2>
+          <p class="chef-destaque__descricao">
+            Cremoso, sofisticado e com um toque cítrico que surpreende.
+            O nosso <strong>Risoto de Camarão</strong> é preparado com camarões
+            frescos, caldo artesanal e finalizado com raspas de limão siciliano.
+            Uma obra-prima em cada colherada.
+          </p>
+          <div class="chef-destaque__preco">
+            <span class="chef-destaque__label">A partir de</span>
+            <span class="chef-destaque__valor">R$ 49,90</span>
+          </div>
+          <a href="contato.html" class="btn btn--primario">Fazer Reserva</a>
+        </div>
+        <div class="chef-destaque__imagem">
+          <!-- Se tiver a imagem do risoto, use-a aqui -->
+          <img src="src/img/RisotoCamarao.png" alt="Risoto de Camarão — Sugestão do Chef" />
+          <div class="chef-destaque__badge">⭐ Chef indica</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CARDÁPIO COMPLETO ===== -->
+    <section class="cardapio-secao">
+      <div class="container">
+
+        <div class="secao-cabecalho">
+          <p class="secao-pretitulo">O que preparamos para você</p>
+          <h2 class="secao-titulo">Nossos Pratos</h2>
+        </div>
+
+        <!-- Botões de filtro — o JS vai usar o data-filtro para mostrar/ocultar -->
+        <div class="cardapio-filtros" id="filtros">
+          <button class="filtro-btn ativo" data-filtro="todos">Todos</button>
+          <button class="filtro-btn" data-filtro="entrada">Entradas</button>
+          <button class="filtro-btn" data-filtro="principal">Principais</button>
+          <button class="filtro-btn" data-filtro="sobremesa">Sobremesas</button>
+          <button class="filtro-btn" data-filtro="bebida">Bebidas</button>
+        </div>
+
+        <!-- Grade de cards -->
+        <!-- Cada card tem data-categoria — o JS usa isso para filtrar -->
+        <div class="cardapio-grid" id="cardapio-grid">
+
+          <!-- ENTRADAS -->
+          <article class="prato-card animar" data-categoria="entrada">
+            <div class="prato-card__imagem prato-card__imagem--placeholder">🥗</div>
+            <div class="prato-card__conteudo">
+              <span class="prato-card__badge prato-card__badge--entrada">Entrada</span>
+              <h3 class="prato-card__nome">Salada Mediterrânea</h3>
+              <p class="prato-card__descricao">
+                Mix de folhas nobres, tomate seco, queijo feta, azeitonas e azeite extravirgem.
+              </p>
+              <div class="prato-card__rodape">
+                <span class="prato-card__preco">R$ 32,00</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="prato-card animar" data-categoria="entrada">
+            <div class="prato-card__imagem prato-card__imagem--placeholder">🧀</div>
+            <div class="prato-card__conteudo">
+              <span class="prato-card__badge prato-card__badge--entrada">Entrada</span>
+              <h3 class="prato-card__nome">Bruschetta Clássica</h3>
+              <p class="prato-card__descricao">
+                Fatias de pão rústico grelhado com tomate fresco, manjericão e fio de azeite.
+              </p>
+              <div class="prato-card__rodape">
+                <span class="prato-card__preco">R$ 24,00</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- PRINCIPAIS -->
+          <article class="prato-card animar" data-categoria="principal">
+            <div class="prato-card__imagem">
+              <img src="src/img/RisotoCamarao.png" alt="Risoto de Camarão" />
+            </div>
+            <div class="prato-card__conteudo">
+              <span class="prato-card__badge prato-card__badge--principal">Principal</span>
+              <h3 class="prato-card__nome">Risoto de Camarão</h3>
+              <p class="prato-card__descricao">
+                Cremoso, com camarões frescos e toque de limão siciliano. Sugestão do Chef.
+              </p>
+              <div class="prato-card__rodape">
+                <span class="prato-card__preco">R$ 49,90</span>
+                <span class="prato-card__destaque">⭐ Chef indica</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="prato-card animar" data-categoria="principal">
+            <div class="prato-card__imagem">
+              <img src="src/img/FileaoMolhoMadeira.png" alt="Filé ao Molho Madeira" />
+            </div>
+            <div class="prato-card__conteudo">
+              <span class="prato-card__badge prato-card__badge--principal">Principal</span>
+              <h3 class="prato-card__nome">Filé ao Molho Madeira</h3>
+              <p class="prato-card__descricao">
+                Filé mignon grelhado ao ponto, banhado em molho madeira artesanal.
+                Acompanha arroz arbóreo e batata rústica.
+              </p>
+              <div class="prato-card__rodape">
+                <span class="prato-card__preco">R$ 54,90</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="prato-card animar" data-categoria="principal">
+            <div class="prato-card__imagem prato-card__imagem--placeholder">🍝</div>
+            <div class="prato-card__conteudo">
+              <span class="prato-card__badge prato-card__badge--principal">Principal</span>
+              <h3 class="prato-card__nome">Spaghetti ao Pesto</h3>
+              <p class="prato-card__descricao">
+                Massa artesanal com molho pesto de manjericão fresco,
+                parmesão e pinoli tostado.
+              </p>
+              <div class="prato-card__rodape">
+                <span class="prato-card__preco">R$ 36,00</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="prato-card animar" data-categoria="principal">
+            <div class="prato-card__imagem prato-card__imagem--placeholder">🍗</div>
+            <div class="prato-card__conteudo">
+              <span class="prato-card__badge prato-card__badge--principal">Principal</span>
+              <h3 class="prato-card__nome">Frango Grelhado</h3>
+              <p class="prato-card__descricao">
+                Peito de frango temperado na hora, grelhado com azeite,
+                alho e ervas finas. Acompanha legumes salteados.
+              </p>
+              <div class="prato-card__rodape">
+                <span class="prato-card__preco">R$ 39,90</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- SOBREMESAS -->
+          <article class="prato-card animar" data-categoria="sobremesa">
+            <div class="prato-card__imagem prato-card__imagem--placeholder">🍮</div>
+            <div class="prato-card__conteudo">
+              <span class="prato-card__badge prato-card__badge--sobremesa">Sobremesa</span>
+              <h3 class="prato-card__nome">Pudim de Leite</h3>
+              <p class="prato-card__descricao">
+                Receita da casa, com textura aveludada e calda de caramelo
+                feita no ponto certo.
+              </p>
+              <div class="prato-card__rodape">
+                <span class="prato-card__preco">R$ 18,00</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="prato-card animar" data-categoria="sobremesa">
+            <div class="prato-card__imagem prato-card__imagem--placeholder">🍫</div>
+            <div class="prato-card__conteudo">
+              <span class="prato-card__badge prato-card__badge--sobremesa">Sobremesa</span>
+              <h3 class="prato-card__nome">Petit Gâteau</h3>
+              <p class="prato-card__descricao">
+                Bolinho de chocolate com interior derretido,
+                servido com sorvete de creme artesanal.
+              </p>
+              <div class="prato-card__rodape">
+                <span class="prato-card__preco">R$ 26,00</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- BEBIDAS -->
+          <article class="prato-card animar" data-categoria="bebida">
+            <div class="prato-card__imagem prato-card__imagem--placeholder">🍹</div>
+            <div class="prato-card__conteudo">
+              <span class="prato-card__badge prato-card__badge--bebida">Bebida</span>
+              <h3 class="prato-card__nome">Suco de Maracujá</h3>
+              <p class="prato-card__descricao">
+                Polpa natural de maracujá, levemente adoçado,
+                servido gelado com hortelã.
+              </p>
+              <div class="prato-card__rodape">
+                <span class="prato-card__preco">R$ 12,00</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="prato-card animar" data-categoria="bebida">
+            <div class="prato-card__imagem prato-card__imagem--placeholder">☕</div>
+            <div class="prato-card__conteudo">
+              <span class="prato-card__badge prato-card__badge--bebida">Bebida</span>
+              <h3 class="prato-card__nome">Café Especial</h3>
+              <p class="prato-card__descricao">
+                Grãos selecionados de origem única, extraídos em
+                espresso ou coado na hora.
+              </p>
+              <div class="prato-card__rodape">
+                <span class="prato-card__preco">R$ 10,00</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+        <!-- fim .cardapio-grid -->
+
+        <!-- Mensagem exibida quando nenhum prato é encontrado no filtro -->
+        <p class="cardapio-vazio" id="cardapio-vazio">
+          Nenhum prato encontrado nessa categoria.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container footer__container">
+        <div class="footer__bloco">
+          <p class="footer__logo">Sabor <span>&</span> Arte</p>
+          <p class="footer__descricao">Cozinha autoral com ingredientes frescos<br />e muito amor em cada prato.</p>
+        </div>
+        <div class="footer__bloco">
+          <h4 class="footer__titulo">Navegação</h4>
+          <ul class="footer__lista">
+            <li><a href="index.html" class="footer__link">Início</a></li>
+            <li><a href="cardapio.html" class="footer__link">Cardápio</a></li>
+            <li><a href="contato.html" class="footer__link">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer__bloco">
+          <h4 class="footer__titulo">Funcionamento</h4>
+          <ul class="footer__lista">
+            <li>Ter – Sex: 12h às 15h / 19h às 23h</li>
+            <li>Sáb – Dom: 12h às 23h</li>
+            <li>Segunda: fechado</li>
+          </ul>
+        </div>
+        <div class="footer__bloco">
+          <h4 class="footer__titulo">Redes Sociais</h4>
+          <ul class="footer__lista">
+            <li><a href="https://instagram.com/restaurantesaborarte" target="_blank" class="footer__link">📸 Instagram</a></li>
+            <li><a href="#" class="footer__link">📘 Facebook</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__rodape">
+        <p>© 2025 Sabor & Arte. Desenvolvido por
+          <a href="https://github.com/matheus-larre" target="_blank" class="footer__link">Matheus Larré</a>.
+        </p>
+      </div>
+    </footer>
+
     <script src="src/js/script.js"></script>
   </body>
 </html>
