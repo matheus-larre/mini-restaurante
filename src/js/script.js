@@ -1,91 +1,44 @@
-// JS básico: muda cor de fundo ao passar o mouse em elementos do menu
+// HEADER: efeito ao rolar a página
+// =============================================
 
-function addHoverEffect(selector, hoverStyle, leaveStyle) {
-  document.querySelectorAll(selector).forEach((el) => {
-    el.addEventListener("mouseenter", () => {
-      Object.assign(el.style, hoverStyle);
-    });
-    el.addEventListener("mouseleave", () => {
-      Object.assign(el.style, leaveStyle);
-    });
-  });
+const header = document.getElementById('header');
+
+// Função chamada toda vez que o usuário rola a página
+function atualizarHeader() {
+  // Se rolou mais de 50px, adiciona a classe 'rolado'
+  if (window.scrollY > 50) {
+    header.classList.add('rolado');
+  } else {
+    header.classList.remove('rolado');
+  }
 }
 
-// Menu navegação
-addHoverEffect(
-  "nav a",
-  { backgroundColor: "#ffe5d0", color: "#d35400" },
-  { backgroundColor: "", color: "" }
-);
+// Escuta o evento de scroll (rolagem)
+window.addEventListener('scroll', atualizarHeader);
 
-// Cardápio (título e menu)
-addHoverEffect(
-  "h1, h2",
-  { color: "#d35400", textShadow: "0 0 8px #ffe5d0" },
-  { color: "", textShadow: "" }
-);
+// Roda uma vez ao carregar, caso a página já esteja rolada
+atualizarHeader();
 
-// Diferenciais no index
-addHoverEffect(
-  "ul li",
-  { backgroundColor: "#fff2e0", borderRadius: "6px" },
-  { backgroundColor: "", borderRadius: "" }
-);
 
-// Contato (título e menu)
-addHoverEffect(
-  "h1",
-  { color: "#d35400", textShadow: "0 0 8px #ffe5d0" },
-  { color: "", textShadow: "" }
-);
+// =============================================
+// MENU HAMBURGUER (mobile)
+// =============================================
 
-// Formas de contato
-addHoverEffect(
-  "ul li",
-  { backgroundColor: "#ffe5d0", borderRadius: "6px" },
-  { backgroundColor: "", borderRadius: "" }
-);
+const hamburguer = document.getElementById('hamburguer');
+const nav = document.getElementById('nav');
 
-// Localização
-addHoverEffect(
-  "h2",
-  { color: "#a63a2b", textShadow: "0 0 8px #ffe5d0" },
-  { color: "", textShadow: "" }
-);
-
-// Efeitos de hover na tabela do cardápio
-document.addEventListener("DOMContentLoaded", function () {
-  const tabela = document.querySelector("table");
-  if (!tabela) return;
-
-  // Efeito para linhas
-  tabela.querySelectorAll("tr").forEach(function (linha) {
-    linha.addEventListener("mouseenter", function () {
-      linha.style.backgroundColor = "#ffe5d0";
-      linha.style.transition = "background 0.2s";
-    });
-    linha.addEventListener("mouseleave", function () {
-      linha.style.backgroundColor = "";
-    });
-  });
-
-  // Efeito para células
-  tabela.querySelectorAll("td").forEach(function (celula) {
-    celula.addEventListener("mouseenter", function () {
-      celula.style.backgroundColor = "#ffd8b0";
-      celula.style.cursor = "pointer";
-      celula.style.transition = "background 0.2s";
-    });
-    celula.addEventListener("mouseleave", function () {
-      celula.style.backgroundColor = "";
-      celula.style.cursor = "";
-    });
-  });
+hamburguer.addEventListener('click', function () {
+  // Alterna a classe 'aberto' no botão e no menu
+  hamburguer.classList.toggle('aberto');
+  nav.classList.toggle('aberto');
 });
 
-// Como fazer seu pedido
-addHoverEffect(
-  "ol li",
-  { backgroundColor: "#fff2e0", borderRadius: "6px" },
-  { backgroundColor: "", borderRadius: "" }
-);
+// Fecha o menu ao clicar em qualquer link
+const linksNav = document.querySelectorAll('.header__link');
+
+linksNav.forEach(function (link) {
+  link.addEventListener('click', function () {
+    hamburguer.classList.remove('aberto');
+    nav.classList.remove('aberto');
+  });
+});

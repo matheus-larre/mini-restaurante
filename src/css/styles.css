@@ -45,3 +45,160 @@ h1, h2, h3 {
   margin: 0 auto;
   padding: 0 24px;
 }
+
+/* =============================================
+   HEADER
+   ============================================= */
+
+.header {
+  position: fixed;        /* gruda no topo mesmo ao rolar */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;          /* fica na frente de tudo */
+  padding: 20px 0;
+  background-color: transparent;
+  transition: background-color var(--transicao), padding var(--transicao), box-shadow var(--transicao);
+}
+
+/* Estado "rolado" — adicionado pelo JS quando o usuário desce */
+.header.rolado {
+  background-color: var(--cor-header);
+  padding: 14px 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.header__logo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--cor-branco);
+  letter-spacing: 1px;
+}
+
+.header__logo span {
+  color: var(--cor-primaria);  /* o "&" fica dourado */
+}
+
+/* Links de navegação */
+.header__lista {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+.header__link {
+  color: var(--cor-branco);
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  padding-bottom: 4px;
+  position: relative;
+  transition: color var(--transicao);
+}
+
+/* Linha que cresce embaixo do link ao passar o mouse */
+.header__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;                         /* começa com largura 0 */
+  height: 2px;
+  background-color: var(--cor-primaria);
+  transition: width var(--transicao);
+}
+
+.header__link:hover::after,
+.header__link.ativo::after {
+  width: 100%;                      /* expande pra 100% no hover/ativo */
+}
+
+.header__link.ativo {
+  color: var(--cor-primaria-clara);
+}
+
+/* Espaçador */
+.header-espacador {
+  height: 80px; /* mesma altura do header */
+}
+
+/* =============================================
+   HAMBURGUER (botão mobile)
+   ============================================= */
+
+.header__hamburguer {
+  display: none;        /* escondido no desktop */
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.header__hamburguer span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: var(--cor-branco);
+  transition: transform var(--transicao), opacity var(--transicao);
+}
+
+/* Animação do X quando o menu está aberto */
+.header__hamburguer.aberto span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.header__hamburguer.aberto span:nth-child(2) {
+  opacity: 0;
+}
+.header__hamburguer.aberto span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* =============================================
+   RESPONSIVIDADE DO HEADER
+   ============================================= */
+
+/* Telas menores que 768px = mobile */
+@media (max-width: 768px) {
+
+  .header__hamburguer {
+    display: flex;  /* aparece o botão ☰ */
+  }
+
+  .header__nav {
+    position: fixed;
+    top: 0;
+    right: -100%;         /* começa fora da tela, à direita */
+    width: 75%;
+    max-width: 320px;
+    height: 100vh;        /* ocupa a tela toda verticalmente */
+    background-color: var(--cor-header);
+    padding: 100px 40px 40px;
+    transition: right var(--transicao);
+    box-shadow: -4px 0 20px rgba(0,0,0,0.3);
+  }
+
+  /* Quando o menu está aberto, desliza pra dentro */
+  .header__nav.aberto {
+    right: 0;
+  }
+
+  .header__lista {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 28px;
+  }
+
+  .header__link {
+    font-size: 1.2rem;
+  }
+}

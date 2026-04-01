@@ -15,15 +15,34 @@
   <link rel="stylesheet" href="src/css/styles.css" />
 </head>
   <body>
-    <header>
-      <h1>Restaurante Sabor & Arte</h1>
-      <nav>
-        <ul>
-          <li><a href="cardapio.html">Cardápio</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </nav>
-    </header>
+<header class="header" id="header">
+  <div class="container header__container">
+
+    <!-- Logo (texto, mas poderia ser uma <img>) -->
+    <a href="index.html" class="header__logo">
+      Sabor <span>&</span> Arte
+    </a>
+
+    <!-- Botão hamburguer — só aparece no mobile -->
+    <button class="header__hamburguer" id="hamburguer" aria-label="Abrir menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Menu de navegação -->
+    <nav class="header__nav" id="nav">
+      <ul class="header__lista">
+        <li><a href="index.html" class="header__link ativo">Início</a></li>
+        <li><a href="cardapio.html" class="header__link">Cardápio</a></li>
+        <li><a href="contato.html" class="header__link">Contato</a></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<div class="header-espacador"></div>
     <main>
       <p>
         Bem-vindo ao Sabor & Arte! Um restaurante que une ingredientes frescos,
