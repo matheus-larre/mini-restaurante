@@ -202,3 +202,367 @@ h1, h2, h3 {
     font-size: 1.2rem;
   }
 }
+
+/* =============================================
+   BOTÕES REUTILIZÁVEIS
+   (usados na hero, história, cardápio etc.)
+   ============================================= */
+
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 4px;
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transicao);
+  border: 2px solid transparent;
+}
+
+.btn--primario {
+  background-color: var(--cor-primaria);
+  color: var(--cor-branco);
+  border-color: var(--cor-primaria);
+}
+
+.btn--primario:hover {
+  background-color: transparent;
+  color: var(--cor-primaria);
+}
+
+/* No hero o fundo é escuro, então o hover do secundário fica branco */
+.btn--secundario {
+  background-color: transparent;
+  color: var(--cor-branco);
+  border-color: var(--cor-branco);
+}
+
+.btn--secundario:hover {
+  background-color: var(--cor-branco);
+  color: var(--cor-texto);
+}
+
+/* =============================================
+   PADRÃO DE CABEÇALHO DE SEÇÃO
+   (pretítulo + título — reutilizado em todas as seções)
+   ============================================= */
+
+.secao-cabecalho {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.secao-pretitulo {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cor-primaria);
+  margin-bottom: 10px;
+}
+
+.secao-titulo {
+  font-size: clamp(1.8rem, 4vw, 2.8rem); /* cresce com a tela */
+  color: var(--cor-texto);
+}
+
+/* =============================================
+   HERO
+   ============================================= */
+
+.hero {
+  position: relative;
+  height: 100vh;          /* ocupa 100% da altura da janela */
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Fundo escuro — troque pela URL de uma foto real de restaurante */
+  background-color: var(--cor-header);
+  background-image: linear-gradient(135deg, #1a1a1a 0%, #2d1f0e 100%);
+  background-size: cover;
+  background-position: center;
+}
+
+/* Camada semitransparente por cima da imagem de fundo */
+.hero__overlay {
+  position: absolute;
+  inset: 0;  /* top:0; right:0; bottom:0; left:0 — forma moderna */
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.hero__conteudo {
+  position: relative; /* fica acima do overlay */
+  z-index: 1;
+  text-align: center;
+  color: var(--cor-branco);
+}
+
+.hero__pretitulo {
+  font-size: 0.9rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cor-primaria-clara);
+  margin-bottom: 16px;
+}
+
+.hero__titulo {
+  font-size: clamp(2.8rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.hero__titulo span {
+  color: var(--cor-primaria);
+}
+
+.hero__subtitulo {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 560px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+
+.hero__botoes {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap; /* em telas bem pequenas, empilha os botões */
+}
+
+/* Seta animada no fundo da hero */
+.hero__seta {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  z-index: 1;
+  animation: seta-bounce 2s infinite; /* animação pulsante */
+  transition: color var(--transicao);
+}
+
+.hero__seta:hover {
+  color: var(--cor-primaria);
+}
+
+@keyframes seta-bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* =============================================
+   DIFERENCIAIS
+   ============================================= */
+
+.diferenciais {
+  padding: var(--espacamento-secao) 0;
+  background-color: var(--cor-fundo);
+}
+
+.diferenciais__grid {
+  display: grid;
+  /* 4 colunas no desktop, vai quebrando automaticamente */
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+.diferencial-card {
+  background-color: var(--cor-branco);
+  border-radius: var(--raio-borda);
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: var(--sombra);
+  transition: transform var(--transicao), box-shadow var(--transicao);
+}
+
+/* Eleva o card ao passar o mouse */
+.diferencial-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.diferencial-card__icone {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+}
+
+.diferencial-card__titulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--cor-texto);
+}
+
+.diferencial-card__texto {
+  font-size: 0.9rem;
+  color: var(--cor-texto-claro);
+  line-height: 1.7;
+}
+
+/* =============================================
+   NOSSA HISTÓRIA
+   ============================================= */
+
+.historia {
+  padding: var(--espacamento-secao) 0;
+  background-color: var(--cor-primaria-clara);
+}
+
+.historia__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.historia__texto {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.historia__texto p {
+  color: var(--cor-texto);
+  line-height: 1.8;
+}
+
+.historia__imagem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.historia__imagem img {
+  max-width: 320px;
+  width: 100%;
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra);
+}
+
+/* Responsividade da história */
+@media (max-width: 768px) {
+  .historia__container {
+    grid-template-columns: 1fr; /* empilha em mobile */
+    gap: 40px;
+  }
+
+  /* Imagem vai embaixo do texto no mobile */
+  .historia__imagem {
+    order: -1; /* mas aqui vamos deixar em cima no mobile */
+  }
+}
+
+/* =============================================
+   FOOTER
+   ============================================= */
+
+.footer {
+  background-color: var(--cor-header);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 64px 0 0;
+}
+
+.footer__container {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr; /* primeiro bloco maior */
+  gap: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer__logo {
+  font-family: var(--fonte-titulo);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cor-branco);
+  margin-bottom: 12px;
+}
+
+.footer__logo span {
+  color: var(--cor-primaria);
+}
+
+.footer__descricao {
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.footer__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: 1rem;
+  color: var(--cor-branco);
+  margin-bottom: 16px;
+  font-weight: 600;
+}
+
+.footer__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 0.9rem;
+}
+
+.footer__link {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color var(--transicao);
+}
+
+.footer__link:hover {
+  color: var(--cor-primaria);
+}
+
+.footer__rodape {
+  text-align: center;
+  padding: 20px 0;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Responsividade do footer */
+@media (max-width: 768px) {
+  .footer__container {
+    grid-template-columns: 1fr 1fr; /* 2 colunas no mobile */
+    gap: 32px;
+  }
+
+  /* Primeiro bloco ocupa as 2 colunas */
+  .footer__bloco:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer__container {
+    grid-template-columns: 1fr; /* 1 coluna em telas bem pequenas */
+  }
+}
+
+/* =============================================
+   ANIMAÇÕES DE ENTRADA (Intersection Observer)
+   ============================================= */
+
+/* Estado inicial: invisível e levemente abaixo */
+.animar {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* Estado final: visível na posição correta */
+.animar.visivel {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Delay progressivo para os cards não animarem todos juntos */
+.animar:nth-child(2) { transition-delay: 0.1s; }
+.animar:nth-child(3) { transition-delay: 0.2s; }
+.animar:nth-child(4) { transition-delay: 0.3s; }

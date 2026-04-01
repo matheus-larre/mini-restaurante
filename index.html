@@ -1,66 +1,189 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Restaurante Sabor & Arte — cozinha autoral com ingredientes frescos." />
-  <title>Restaurante Sabor & Arte</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Restaurante Sabor & Arte — cozinha autoral com ingredientes frescos em um ambiente acolhedor." />
+    <title>Restaurante Sabor & Arte</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="src/css/reset.css" />
-  <link rel="stylesheet" href="src/css/styles.css" />
-</head>
+    <link rel="stylesheet" href="src/css/reset.css" />
+    <link rel="stylesheet" href="src/css/styles.css" />
+  </head>
+
   <body>
-<header class="header" id="header">
-  <div class="container header__container">
 
-    <!-- Logo (texto, mas poderia ser uma <img>) -->
-    <a href="index.html" class="header__logo">
-      Sabor <span>&</span> Arte
-    </a>
+    <!-- ===== HEADER (igual nas 3 páginas) ===== -->
+    <header class="header" id="header">
+      <div class="container header__container">
+        <a href="index.html" class="header__logo">Sabor <span>&</span> Arte</a>
+        <button class="header__hamburguer" id="hamburguer" aria-label="Abrir menu">
+          <span></span><span></span><span></span>
+        </button>
+        <nav class="header__nav" id="nav">
+          <ul class="header__lista">
+            <li><a href="index.html" class="header__link ativo">Início</a></li>
+            <li><a href="cardapio.html" class="header__link">Cardápio</a></li>
+            <li><a href="contato.html" class="header__link">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-    <!-- Botão hamburguer — só aparece no mobile -->
-    <button class="header__hamburguer" id="hamburguer" aria-label="Abrir menu">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <!-- ===== HERO ===== -->
+    <!-- A hero não usa o .header-espacador pois ocupa a tela inteira,
+         incluindo a área atrás do header transparente -->
+    <section class="hero" id="inicio">
+      <div class="hero__overlay"></div>
+      <div class="container hero__conteudo">
+        <p class="hero__pretitulo">Bem-vindo ao</p>
+        <h1 class="hero__titulo">Sabor <span>&</span> Arte</h1>
+        <p class="hero__subtitulo">
+          Cozinha autoral, ingredientes frescos e um ambiente pensado<br />
+          para transformar cada refeição em uma memória afetiva.
+        </p>
+        <div class="hero__botoes">
+          <a href="cardapio.html" class="btn btn--primario">Ver Cardápio</a>
+          <a href="contato.html" class="btn btn--secundario">Fazer Reserva</a>
+        </div>
+      </div>
+      <!-- Seta animada que indica "role para baixo" -->
+      <a href="#diferenciais" class="hero__seta" aria-label="Rolar para baixo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </a>
+    </section>
 
-    <!-- Menu de navegação -->
-    <nav class="header__nav" id="nav">
-      <ul class="header__lista">
-        <li><a href="index.html" class="header__link ativo">Início</a></li>
-        <li><a href="cardapio.html" class="header__link">Cardápio</a></li>
-        <li><a href="contato.html" class="header__link">Contato</a></li>
-      </ul>
-    </nav>
+    <!-- ===== DIFERENCIAIS ===== -->
+    <section class="diferenciais" id="diferenciais">
+      <div class="container">
+        <div class="secao-cabecalho">
+          <p class="secao-pretitulo">Por que nos escolher</p>
+          <h2 class="secao-titulo">Nossos Diferenciais</h2>
+        </div>
+        <div class="diferenciais__grid">
 
-  </div>
-</header>
+          <article class="diferencial-card animar">
+            <div class="diferencial-card__icone">🌿</div>
+            <h3 class="diferencial-card__titulo">Ingredientes Frescos</h3>
+            <p class="diferencial-card__texto">
+              Trabalhamos com fornecedores locais e selecionamos os melhores
+              ingredientes da estação para cada prato.
+            </p>
+          </article>
 
-<div class="header-espacador"></div>
-    <main>
-      <p>
-        Bem-vindo ao Sabor & Arte! Um restaurante que une ingredientes frescos,
-        ambiente acolhedor e pratos autorais para uma experiência única.
-      </p>
-      <img
-        src="src/img/Sabor&Arte - Logo.png"
-        alt="Logo do Restaurante Sabor & Arte"
-        width="220"
-        class="logo-center"
-      />
-      <h2>Diferenciais</h2>
-      <ul>
-        <li>Ingredientes frescos e selecionados</li>
-        <li>Ambiente familiar e aconchegante</li>
-        <li>Entrega rápida e eficiente</li>
-      </ul>
-    </main>
+          <article class="diferencial-card animar">
+            <div class="diferencial-card__icone">🏡</div>
+            <h3 class="diferencial-card__titulo">Ambiente Acolhedor</h3>
+            <p class="diferencial-card__texto">
+              Um espaço familiar e confortável, ideal para celebrar momentos
+              especiais com quem você ama.
+            </p>
+          </article>
+
+          <article class="diferencial-card animar">
+            <div class="diferencial-card__icone">👨‍🍳</div>
+            <h3 class="diferencial-card__titulo">Cozinha Autoral</h3>
+            <p class="diferencial-card__texto">
+              Nosso chef cria receitas exclusivas que combinam técnicas clássicas
+              com a criatividade da culinária contemporânea.
+            </p>
+          </article>
+
+          <article class="diferencial-card animar">
+            <div class="diferencial-card__icone">🚀</div>
+            <h3 class="diferencial-card__titulo">Entrega Rápida</h3>
+            <p class="diferencial-card__texto">
+              Levamos o sabor do Sabor & Arte até a sua casa com agilidade
+              e embalagens que preservam a qualidade dos pratos.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NOSSA HISTÓRIA ===== -->
+    <section class="historia">
+      <div class="container historia__container">
+        <div class="historia__texto animar">
+          <p class="secao-pretitulo">Quem somos</p>
+          <h2 class="secao-titulo">Nossa História</h2>
+          <p>
+            O Sabor & Arte nasceu do sonho de unir duas paixões: a gastronomia e
+            a expressão criativa. Fundado em 2018, o restaurante rapidamente se
+            tornou um ponto de encontro para quem busca mais do que uma refeição
+            — busca uma experiência.
+          </p>
+          <p>
+            Cada prato é pensado como uma obra: ingredientes como pinceladas,
+            sabores como cores, e o prato como tela. Venha fazer parte dessa história.
+          </p>
+          <a href="contato.html" class="btn btn--primario" style="margin-top: 12px; display: inline-block;">
+            Entre em Contato
+          </a>
+        </div>
+        <div class="historia__imagem animar">
+          <img src="src/img/Sabor&Arte - Logo.png" alt="Logo do Restaurante Sabor e Arte" />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+      <div class="container footer__container">
+
+        <div class="footer__bloco">
+          <p class="footer__logo">Sabor <span>&</span> Arte</p>
+          <p class="footer__descricao">
+            Cozinha autoral com ingredientes frescos<br />e muito amor em cada prato.
+          </p>
+        </div>
+
+        <div class="footer__bloco">
+          <h4 class="footer__titulo">Navegação</h4>
+          <ul class="footer__lista">
+            <li><a href="index.html" class="footer__link">Início</a></li>
+            <li><a href="cardapio.html" class="footer__link">Cardápio</a></li>
+            <li><a href="contato.html" class="footer__link">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__bloco">
+          <h4 class="footer__titulo">Funcionamento</h4>
+          <ul class="footer__lista">
+            <li>Ter – Sex: 12h às 15h / 19h às 23h</li>
+            <li>Sáb – Dom: 12h às 23h</li>
+            <li>Segunda: fechado</li>
+          </ul>
+        </div>
+
+        <div class="footer__bloco">
+          <h4 class="footer__titulo">Redes Sociais</h4>
+          <ul class="footer__lista">
+            <li>
+              <a href="https://instagram.com/restaurantesaborarte" target="_blank" class="footer__link">
+                📸 Instagram
+              </a>
+            </li>
+            <li>
+              <a href="#" class="footer__link">📘 Facebook</a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+      <div class="footer__rodape">
+        <p>© 2025 Sabor & Arte. Desenvolvido por
+          <a href="https://github.com/matheus-larre" target="_blank" class="footer__link">Matheus Larré</a>.
+        </p>
+      </div>
+    </footer>
+
     <script src="src/js/script.js"></script>
   </body>
 </html>

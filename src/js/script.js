@@ -42,3 +42,30 @@ linksNav.forEach(function (link) {
     nav.classList.remove('aberto');
   });
 });
+
+// =============================================
+// ANIMAÇÕES AO ROLAR (Intersection Observer)
+// =============================================
+
+// Seleciona todos os elementos com a classe 'animar'
+// (vamos adicionar essa classe nos cards e seções)
+const elementosAnimados = document.querySelectorAll('.animar');
+
+// O Observer "observa" quando um elemento entra na viewport
+const observer = new IntersectionObserver(function (entradas) {
+  entradas.forEach(function (entrada) {
+    if (entrada.isIntersecting) {
+      // Quando o elemento aparece na tela, adiciona a classe 'visivel'
+      entrada.target.classList.add('visivel');
+      // Para de observar — a animação só acontece uma vez
+      observer.unobserve(entrada.target);
+    }
+  });
+}, {
+  threshold: 0.15 // dispara quando 15% do elemento está visível
+});
+
+// Registra cada elemento para ser observado
+elementosAnimados.forEach(function (el) {
+  observer.observe(el);
+});
