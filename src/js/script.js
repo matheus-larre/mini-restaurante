@@ -115,3 +115,122 @@ if (cardapioGrid) {
     });
   });
 }
+
+// =============================================
+// VALIDAÇÃO DO FORMULÁRIO DE CONTATO
+// =============================================
+
+const contatoForm = document.getElementById('contato-form');
+
+if (contatoForm) {
+
+  // --- Funções auxiliares de validação ---
+
+  // Marca campo como erro e exibe mensagem
+  function marcarErro(input, mensagem, idErro) {
+    input.classList.add('erro');
+    input.classList.remove('sucesso');
+    document.getElementById(idErro).textContent = mensagem;
+  }
+
+  // Marca campo como válido
+  function marcarSucesso(input, idErro) {
+    input.classList.remove('erro');
+    input.classList.add('sucesso');
+    document.getElementById(idErro).textContent = '';
+  }
+
+  // Valida todos os campos e retorna true se tudo estiver ok
+  function validarFormulario() {
+    let valido = true;
+
+    const nome     = document.getElementById('nome');
+    const email    = document.getElementById('email');
+    const assunto  = document.getElementById('assunto');
+    const mensagem = document.getElementById('mensagem');
+
+    // Valida nome (mínimo 3 caracteres)
+    if (nome.value.trim().length < 3) {
+      marcarErro(nome, 'Por favor, informe seu nome completo.', 'erro-nome');
+      valido = false;
+    } else {
+      marcarSucesso(nome, 'erro-nome');
+    }
+
+    // Valida e-mail com regex simples
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!regexEmail.test(email.value.trim())) {
+      marcarErro(email, 'Informe um e-mail válido.', 'erro-email');
+      valido = false;
+    } else {
+      marcarSucesso(email, 'erro-email');
+    }
+
+    // Valida assunto
+    if (!assunto.value) {
+      marcarErro(assunto, 'Selecione um assunto.', 'erro-assunto');
+      valido = false;
+    } else {
+      marcarSucesso(assunto, 'erro-assunto');
+    }
+
+    // Valida mensagem (mínimo 10 caracteres)
+    if (mensagem.value.trim().length < 10) {
+      marcarErro(mensagem, 'A mensagem deve ter pelo menos 10 caracteres.', 'erro-mensagem');
+      valido = false;
+    } else {
+      marcarSucesso(mensagem, 'erro-mensagem');
+    }
+
+    return valido;
+  }
+
+  // --- Validação em tempo real ao sair de cada campo ---
+  // O usuário vê o feedback enquanto preenche, não só ao enviar
+
+  ['nome', 'email', 'assunto', 'mensagem'].forEach(function (id) {
+    const campo = document.getElementById(id);
+    if (campo) {
+      campo.addEventListener('blur', validarFormulario);
+      // 'blur' dispara quando o usuário sai do campo
+    }
+  });
+
+  // --- Envio do formulário ---
+
+  contatoForm.addEventListener('submit', function (evento) {
+    evento.preventDefault(); // impede o reload da página
+
+    if (!validarFormulario()) return; // para aqui se inválido
+
+    const btn      = document.getElementById('form-btn');
+    const sucesso  = document.getElementById('form-sucesso');
+
+    // Estado de carregamento
+    btn.classList.add('carregando');
+    btn.textContent = 'Enviando...';
+
+    // Simula envio (em produção, aqui viria um fetch para uma API)
+    setTimeout(function () {
+      btn.classList.remove('carregando');
+      btn.textContent = 'Enviar Mensagem';
+
+      // Exibe mensagem de sucesso
+      sucesso.classList.add('visivel');
+
+      // Reseta o formulário
+      contatoForm.reset();
+
+      // Remove classes de validação dos campos
+      contatoForm.querySelectorAll('.form-input').forEach(function (input) {
+        input.classList.remove('sucesso', 'erro');
+      });
+
+      // Esconde a mensagem de sucesso após 5 segundos
+      setTimeout(function () {
+        sucesso.classList.remove('visivel');
+      }, 5000);
+
+    }, 1500); // simula 1.5s de "chamada de API"
+  });
+}

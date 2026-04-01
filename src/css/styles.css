@@ -831,3 +831,237 @@ h1, h2, h3 {
   display: block;
 }
 
+/* =============================================
+   PÁGINA DE CONTATO
+   ============================================= */
+
+.contato-secao {
+  padding: var(--espacamento-secao) 0;
+  background-color: var(--cor-fundo);
+}
+
+.contato-secao__container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: start; /* alinha pelo topo, não pelo centro */
+}
+
+/* ---- Coluna de informações ---- */
+
+.contato-info__intro {
+  color: var(--cor-texto-claro);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.contato-info__lista {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.info-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: var(--cor-branco);
+  border-radius: var(--raio-borda);
+  box-shadow: var(--sombra);
+  transition: transform var(--transicao);
+}
+
+.info-card:hover {
+  transform: translateX(6px); /* desliza pra direita no hover */
+}
+
+.info-card__icone {
+  font-size: 1.5rem;
+  flex-shrink: 0; /* não deixa o ícone encolher */
+}
+
+.info-card__titulo {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--cor-primaria);
+  margin-bottom: 6px;
+}
+
+.info-card__texto {
+  font-size: 0.9rem;
+  color: var(--cor-texto-claro);
+  line-height: 1.7;
+}
+
+.contato-link {
+  color: var(--cor-primaria);
+  font-weight: 700;
+  transition: opacity var(--transicao);
+}
+
+.contato-link:hover {
+  opacity: 0.75;
+}
+
+/* ---- Formulário ---- */
+
+.contato-form-wrapper {
+  background-color: var(--cor-branco);
+  border-radius: var(--raio-borda);
+  padding: 40px;
+  box-shadow: var(--sombra);
+}
+
+.contato-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-grupo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--cor-texto);
+  letter-spacing: 0.3px;
+}
+
+.form-input {
+  padding: 12px 16px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-family: var(--fonte-corpo);
+  font-size: 0.95rem;
+  color: var(--cor-texto);
+  background-color: var(--cor-fundo);
+  transition: border-color var(--transicao), box-shadow var(--transicao);
+  outline: none;
+  width: 100%;
+}
+
+/* Estado de foco — borda dourada + leve sombra */
+.form-input:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.15);
+}
+
+/* Estado de erro — borda vermelha */
+.form-input.erro {
+  border-color: #dc3545;
+}
+
+/* Estado de sucesso — borda verde */
+.form-input.sucesso {
+  border-color: #28a745;
+}
+
+.form-select {
+  cursor: pointer;
+  appearance: none; /* remove a seta padrão do sistema */
+  /* seta customizada com SVG inline */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  padding-right: 40px;
+}
+
+.form-textarea {
+  resize: vertical;    /* só permite redimensionar verticalmente */
+  min-height: 120px;
+}
+
+/* Mensagem de erro abaixo do campo */
+.form-erro {
+  font-size: 0.8rem;
+  color: #dc3545;
+  min-height: 18px;   /* reserva espaço para não pular o layout */
+}
+
+.form-btn {
+  width: 100%;
+  padding: 16px;
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+/* Estado de loading do botão */
+.form-btn.carregando {
+  opacity: 0.7;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* Mensagem de sucesso após envio */
+.form-sucesso {
+  display: none;
+  text-align: center;
+  padding: 16px;
+  background-color: #d4edda;
+  color: #1a6630;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.form-sucesso.visivel {
+  display: block;
+}
+
+/* =============================================
+   MAPA (placeholder)
+   ============================================= */
+
+.mapa-secao {
+  height: 320px;
+}
+
+.mapa-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2d1f0e, #1a1a1a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mapa-placeholder__conteudo {
+  text-align: center;
+  color: var(--cor-branco);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.mapa-placeholder__icone {
+  font-size: 3rem;
+}
+
+.mapa-placeholder__texto {
+  font-size: 1.1rem;
+  color: rgba(255,255,255,0.8);
+  margin-bottom: 4px;
+}
+
+/* =============================================
+   RESPONSIVIDADE DA PÁGINA DE CONTATO
+   ============================================= */
+
+@media (max-width: 768px) {
+  .contato-secao__container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .contato-form-wrapper {
+    padding: 28px 20px;
+  }
+}
