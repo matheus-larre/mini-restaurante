@@ -5,7 +5,7 @@
 
 ## 🔗 Acesse o projeto
 
-**[→ Ver site ao vivo](https://matheus-larre.github.io/mini-restaurante/)**
+**[→ Ver site ao vivo](https://matheus-larre.github.io/restaurante-sabor-arte-website/)**
 
 ---
 
